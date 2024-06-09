@@ -1,9 +1,8 @@
 * {
-  * {
-    box-sizing: border-box;
-    position: relative;
-    min-width: 0;
-  }
+  box-sizing: border-box;
+  position: relative;
+  min-width: 0;
+
 
   body {
     min-height: 100dvh;
