@@ -1,0 +1,19 @@
+.navbarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #003366;
+}
+
+.navbarNav {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    color: #000000;
+}
+
+.brandLogo {
+    padding-left: 10px;
+    color: #000000;
+    ;
+}
