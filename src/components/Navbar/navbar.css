@@ -12,6 +12,11 @@
     color: #000000;
 }
 
+li:hover {
+    color: #ffffff;
+    transition: .3s;
+}
+
 .brandLogo {
     padding-left: 10px;
     color: #000000;
