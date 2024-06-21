@@ -1,12 +1,14 @@
 // import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
-import ItemListContainer from "./pages/itemListContanier/ItemListContainer";
+import ItemListContainer from "./pages/itemListContainer/ItemListContainer";
+import ItemDetailContainer from "./pages/itemDetailContainer/ItemDetailContainer";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <ItemListContainer greeting={"Bienvenido a la Tienda!"} />
+      <ItemListContainer />
+      <ItemDetailContainer />
     </div>
   );
 }
