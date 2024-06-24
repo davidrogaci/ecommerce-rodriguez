@@ -5,12 +5,13 @@
   font-weight: 700;
   font-style: normal;
   box-sizing: border-box;
-  position: relative;
-  min-width: 0;
+  margin: 0;
+  padding: 0;
 
   body {
     min-height: 100dvh;
     margin: 0;
+    overflow: hidden;
   }
 
   h1,

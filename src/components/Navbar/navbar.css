@@ -1,24 +1,26 @@
 .navbarContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #003366;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #003366;
 }
 
 .navbarNav {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    color: #000000;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  color: #000000;
+  padding-right: 80px;
 }
 
 li:hover {
-    color: #ffffff;
-    transition: .3s;
+  color: #ffffff;
+  transition: 0.3s;
 }
 
 .brandLogo {
-    padding-left: 10px;
-    color: #000000;
-    ;
+  align-items: center;
+  padding-left: 10px;
+  color: #000000;
 }
