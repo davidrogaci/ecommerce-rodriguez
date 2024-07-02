@@ -14,13 +14,19 @@
   padding-right: 80px;
 }
 
-li:hover {
+a {
+  text-decoration: none;
+  gap: 1rem;
+  color: #000000;
+}
+
+a:hover {
   color: #ffffff;
   transition: 0.3s;
 }
 
 .brandLogo {
   align-items: center;
-  padding-left: 10px;
   color: #000000;
+  text-decoration: none;
 }

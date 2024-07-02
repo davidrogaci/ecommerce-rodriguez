@@ -1,7 +1,20 @@
-const ItemList = () => {
+import { ProductCard } from "../../components/productCard/ProductCard";
+
+const ItemList = ({ items }) => {
   return (
     <div className="ItemListContainer">
-      <h1>Bienvenidos a la Tienda!</h1>
+      {items.map((elemento) => {
+        return (
+          <ProductCard
+            key={elemento.id}
+            title={elemento.title}
+            description={elemento.description}
+            price={elemento.price}
+            id={elemento.id}
+            img={elemento.img}
+          />
+        );
+      })}
     </div>
   );
 };

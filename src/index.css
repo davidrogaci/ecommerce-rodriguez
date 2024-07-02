@@ -11,7 +11,6 @@
   body {
     min-height: 100dvh;
     margin: 0;
-    overflow: hidden;
   }
 
   h1,
@@ -27,5 +26,10 @@
 }
 
 .ItemListContainer {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   color: #333333;
 }
