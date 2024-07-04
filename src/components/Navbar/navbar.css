@@ -15,18 +15,20 @@
 }
 
 a {
+  font-size: 20px;
   text-decoration: none;
   gap: 1rem;
-  color: #000000;
+  color: #ffffff;
 }
 
 a:hover {
-  color: #ffffff;
+  color: #000000;
   transition: 0.3s;
 }
 
 .brandLogo {
+  margin: 10px;
   align-items: center;
-  color: #000000;
+  color: #ffffff;
   text-decoration: none;
 }

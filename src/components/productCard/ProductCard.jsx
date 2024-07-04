@@ -13,9 +13,9 @@ export const ProductCard = ({ title, description, price, id, img }) => {
     <Card sx={{ width: 345 }}>
       <CardMedia
         component={"img"}
-        sx={{ height: 140, width: "100%" }}
+        sx={{ height: 250, width: "100%" }}
         image={img}
-        title="green iguana"
+        // title="green iguana"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
