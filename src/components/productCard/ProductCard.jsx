@@ -13,7 +13,7 @@ export const ProductCard = ({ title, description, price, id, img }) => {
     <Card sx={{ width: 345 }}>
       <CardMedia
         component={"img"}
-        sx={{ height: 210, width: "100%", objectFit: "cover" }}
+        sx={{ height: 200, width: "100%", objectFit: "cover" }}
         image={img}
         title="green iguana"
       />
