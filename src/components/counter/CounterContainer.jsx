@@ -12,7 +12,7 @@ const CounterContainer = () => {
     if (contador > 1) {
       setContador(contador - 1);
     } else {
-      alert("Minimo");
+      alert("Paraa");
     }
   };
 

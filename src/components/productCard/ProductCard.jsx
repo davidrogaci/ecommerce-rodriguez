@@ -13,9 +13,9 @@ export const ProductCard = ({ title, description, price, id, img }) => {
     <Card sx={{ width: 345 }}>
       <CardMedia
         component={"img"}
-        sx={{ height: 250, width: "100%" }}
+        sx={{ height: 210, width: "100%", objectFit: "cover" }}
         image={img}
-        // title="green iguana"
+        title="green iguana"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -24,8 +24,8 @@ export const ProductCard = ({ title, description, price, id, img }) => {
         <Typography variant="body2" color="text.secondary">
           {description}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {price}
+        <Typography variant="h5" color="primary">
+          ${price}
         </Typography>
       </CardContent>
       <CardActions>
