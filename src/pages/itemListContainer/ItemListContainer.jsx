@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
   const [items, setItems] = useState([]);
-  const [, setError] = useState({});
+  const [error, setError] = useState({});
   const { name } = useParams();
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const ItemListContainer = () => {
         (product) => product.category === name
       );
       if (x) {
-        resolve(name ? arrayFiltered : products);
+        resolve(name ? arrayFiltered : products); // [todos] [con una parte] [ deportivas ]
       } else {
         reject({ message: "error", codigo: "404" });
       }
