@@ -23,6 +23,10 @@ const ItemDetail = ({ item, onAdd, initial }) => {
               {item.description}
             </h2>
             <h2>
+              <span style={{ fontSize: "23px", color: "#003366" }}>STOCK:</span>{" "}
+              {item.stock}
+            </h2>
+            <h2>
               <span style={{ fontSize: "23px", color: "#003366" }}>
                 Precio:
               </span>{" "}

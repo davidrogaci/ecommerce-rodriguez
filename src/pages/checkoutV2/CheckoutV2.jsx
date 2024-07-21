@@ -85,15 +85,16 @@ const CheckoutV2 = () => {
     <form
       onSubmit={handleSubmit}
       style={{
+        display: "flex",
+        flexDirection: "column",
         marginTop: "50px",
         marginLeft: "300px",
         marginRight: "300px",
         padding: "20px",
-        display: "flex",
-        flexDirection: "column",
         gap: "20px",
         border: "3px solid blue",
         borderRadius: "5px",
+        backgroundColor: "white",
       }}
     >
       <h1>FINALIZAR COMPRA:</h1>

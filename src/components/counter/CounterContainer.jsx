@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Counter } from "./Counter";
+import { toast } from "sonner";
 
 const CounterContainer = ({ onAdd, stock, initial = 1 }) => {
   const [contador, setContador] = useState(initial);
@@ -8,7 +9,7 @@ const CounterContainer = ({ onAdd, stock, initial = 1 }) => {
     if (contador < stock) {
       setContador(contador + 1);
     } else {
-      alert("stock maximo");
+      toast.error(`NO HAY MAS!`);
     }
   };
 
@@ -16,7 +17,7 @@ const CounterContainer = ({ onAdd, stock, initial = 1 }) => {
     if (contador > 1) {
       setContador(contador - 1);
     } else {
-      alert("Minimo");
+      toast.error(`MINIMO!`);
     }
   };
   return (

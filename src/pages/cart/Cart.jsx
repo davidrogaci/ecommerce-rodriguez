@@ -16,8 +16,8 @@ const Cart = () => {
       title: "Seguro quieres eliminar?",
       showDenyButton: true,
       showCancelButton: false,
-      confirmButtonText: "si, borrar",
-      denyButtonText: `no, no borrar`,
+      confirmButtonText: "Si, borrar",
+      denyButtonText: `No, no borrar`,
     }).then((result) => {
       if (result.isConfirmed) {
         toast.error("Eliminado", "", "success");
@@ -64,10 +64,9 @@ const Cart = () => {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
           flexDirection: "column",
-          padding: "10px",
           alignItems: "center",
+          padding: "10px",
           border: "3px solid blue",
           borderRadius: "5px",
           gap: "10px",
