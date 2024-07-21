@@ -45,18 +45,21 @@ const Checkout = () => {
             placeholder="Ingresa tu nombre"
             onChange={capturarData}
             name="nombre"
+            autoComplete="on"
           />
           <input
             type="email"
             placeholder="Ingresa tu email"
             name="email"
             onChange={capturarData}
+            autoComplete="on"
           />
           <input
             type="text"
             placeholder="Ingresa tu telefono"
             name="telefono"
             onChange={capturarData}
+            autoComplete="on"
           />
 
           <button>REGISTRAR</button>
