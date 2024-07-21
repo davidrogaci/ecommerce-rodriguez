@@ -8,7 +8,7 @@ import { db } from "../../firebaseConfig";
 import { CartContext } from "../../context/CartContext";
 import { toast } from "sonner";
 
-const CheckoutFormik2 = () => {
+const CheckoutV2 = () => {
   const navigate = useNavigate();
   const { cart, getTotalPrice, clearCart } = useContext(CartContext);
   const [orderId, setOrderId] = useState("");
@@ -159,4 +159,4 @@ const CheckoutFormik2 = () => {
   );
 };
 
-export default CheckoutFormik2;
+export default CheckoutV2;

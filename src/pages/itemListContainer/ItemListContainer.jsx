@@ -30,7 +30,7 @@ const ItemListContainer = () => {
       <div
         style={{
           display: "flex",
-          gap: "50px",
+          gap: "40px",
         }}
       >
         <Box>
