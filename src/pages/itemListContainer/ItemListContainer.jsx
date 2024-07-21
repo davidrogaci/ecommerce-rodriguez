@@ -60,6 +60,20 @@ const ItemListContainer = () => {
           <Skeleton variant="text" width={150} height={50} />
           <Skeleton variant="rectangular" width={100} height={50} />
         </Box>
+
+        <Box>
+          <Skeleton variant="rectangular" width={250} height={100} />
+          <Skeleton variant="text" width={150} height={60} />
+          <Skeleton variant="text" width={150} height={50} />
+          <Skeleton variant="rectangular" width={100} height={50} />
+        </Box>
+
+        <Box>
+          <Skeleton variant="rectangular" width={250} height={100} />
+          <Skeleton variant="text" width={150} height={60} />
+          <Skeleton variant="text" width={150} height={50} />
+          <Skeleton variant="rectangular" width={100} height={50} />
+        </Box>
       </div>
     );
   }
