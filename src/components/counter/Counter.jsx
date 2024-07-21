@@ -11,11 +11,11 @@ export const Counter = ({ restar, contador, sumar, onAdd }) => {
       }}
     >
       <Button variant="contained" onClick={restar}>
-        Restar
+        -
       </Button>
       <h2> {contador} </h2>
       <Button variant="contained" onClick={sumar}>
-        Sumar
+        +
       </Button>
 
       <Button variant="outlined" onClick={() => onAdd(contador)}>

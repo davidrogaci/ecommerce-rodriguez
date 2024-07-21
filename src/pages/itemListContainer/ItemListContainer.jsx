@@ -1,36 +1,81 @@
 import ItemList from "./ItemList";
-import { products } from "../../products";
+// import { products } from "../../products";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Box, Button, Skeleton } from "@mui/material";
+import { db } from "../../firebaseConfig";
+import { collection, getDocs, query, where, addDoc } from "firebase/firestore";
 
 const ItemListContainer = () => {
-  const [items, setItems] = useState([]);
-  const [error, setError] = useState({});
   const { name } = useParams();
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const getProducts = new Promise((resolve, reject) => {
-      let x = true;
-      let arrayFiltered = products.filter(
-        (product) => product.category === name
-      );
-      if (x) {
-        resolve(name ? arrayFiltered : products); // [todos] [con una parte] [ deportivas ]
-      } else {
-        reject({ message: "error", codigo: "404" });
-      }
-    });
+    let productsCollection = collection(db, "products");
 
-    getProducts
-      .then((res) => {
-        setItems(res);
-      })
-      .catch((error) => {
-        setError(error);
+    let consulta = productsCollection;
+    if (name) {
+      consulta = query(productsCollection, where("category", "==", name));
+    }
+
+    let getProducts = getDocs(consulta);
+    getProducts.then((res) => {
+      let arrayValido = res.docs.map((product) => {
+        return { ...product.data(), id: product.id };
       });
+      setItems(arrayValido);
+    });
   }, [name]);
+  if (items.length === 0) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          gap: "50px",
+        }}
+      >
+        <Box>
+          <Skeleton variant="rectangular" width={250} height={100} />
+          <Skeleton variant="text" width={150} height={60} />
+          <Skeleton variant="text" width={150} height={50} />
+          <Skeleton variant="rectangular" width={100} height={50} />
+        </Box>
 
-  return <ItemList items={items} />;
+        <Box>
+          <Skeleton variant="rectangular" width={250} height={100} />
+          <Skeleton variant="text" width={150} height={60} />
+          <Skeleton variant="text" width={150} height={50} />
+          <Skeleton variant="rectangular" width={100} height={50} />
+        </Box>
+
+        <Box>
+          <Skeleton variant="rectangular" width={250} height={100} />
+          <Skeleton variant="text" width={150} height={60} />
+          <Skeleton variant="text" width={150} height={50} />
+          <Skeleton variant="rectangular" width={100} height={50} />
+        </Box>
+
+        <Box>
+          <Skeleton variant="rectangular" width={250} height={100} />
+          <Skeleton variant="text" width={150} height={60} />
+          <Skeleton variant="text" width={150} height={50} />
+          <Skeleton variant="rectangular" width={100} height={50} />
+        </Box>
+      </div>
+    );
+  }
+  // const addProducts = () => {
+  //   let productsCollection = collection(db, "products");
+  //   products.forEach((elemento) => {
+  //     addDoc(productsCollection, elemento);
+  //   });
+  // };
+  return (
+    <div>
+      {/* <Button onClick={addProducts}>Agregar Productos</Button> */}
+      <ItemList items={items} />;
+    </div>
+  );
 };
 
 export default ItemListContainer;

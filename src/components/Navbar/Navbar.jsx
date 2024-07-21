@@ -11,7 +11,7 @@ export const Navbar = () => {
             KICKSTREET
           </Link>
           <ul className="navbarNav">
-            <Link to="/category/runnig">Runnig</Link>
+            <Link to="/category/running">Running</Link>
             <Link to="/category/sneakers">Sneakers</Link>
             <Link to="/category/basketball">Basketball</Link>
           </ul>

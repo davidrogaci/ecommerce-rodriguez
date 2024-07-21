@@ -37,13 +37,18 @@ const CheckoutFormik = () => {
     <form
       onSubmit={handleSubmit}
       style={{
-        margin: "50px",
+        marginTop: "50px",
+        marginLeft: "300px",
+        marginRight: "300px",
+        padding: "20px",
         display: "flex",
         flexDirection: "column",
-        width: "50%",
         gap: "20px",
+        border: "3px solid blue",
+        borderRadius: "5px",
       }}
     >
+      <h1>FINALIZAR COMPRA:</h1>
       <TextField
         variant="outlined"
         type="text"
@@ -55,7 +60,7 @@ const CheckoutFormik = () => {
       />
       <TextField
         variant="outlined"
-        type="text"
+        type="email"
         label="Email"
         name="email"
         onChange={handleChange}
