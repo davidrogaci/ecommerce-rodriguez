@@ -1,10 +1,9 @@
 import ItemList from "./ItemList";
-// import { products } from "../../products";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Box, Button, Skeleton } from "@mui/material";
+import { Box, Skeleton } from "@mui/material";
 import { db } from "../../firebaseConfig";
-import { collection, getDocs, query, where, addDoc } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 const ItemListContainer = () => {
   const { name } = useParams();
@@ -64,15 +63,8 @@ const ItemListContainer = () => {
       </div>
     );
   }
-  // const addProducts = () => {
-  //   let productsCollection = collection(db, "products");
-  //   products.forEach((elemento) => {
-  //     addDoc(productsCollection, elemento);
-  //   });
-  // };
   return (
     <div>
-      {/* <Button onClick={addProducts}>Agregar Productos</Button> */}
       <ItemList items={items} />;
     </div>
   );

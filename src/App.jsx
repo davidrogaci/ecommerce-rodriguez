@@ -6,10 +6,12 @@ import Cart from "./pages/cart/Cart";
 import CartContextProvider from "./context/CartContext";
 import Checkout from "./pages/checkout/Checkout";
 import CheckoutFormik from "./pages/checkoutFormik/CheckoutFormik";
+import { Toaster } from "sonner";
 
 function App() {
   return (
     <BrowserRouter>
+      <Toaster richColors position="bottom-right" duration={4000} />
       <CartContextProvider>
         <Routes>
           <Route element={<Layout />}>

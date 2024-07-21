@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import Swal from "sweetalert2";
 import { ProductCart } from "../../components/productCard/ProductCart";
+import { toast } from "sonner";
 
 const Cart = () => {
   const { cart, clearCart, deleteProduct, getTotalPrice } =
     useContext(CartContext);
-  let total = getTotalPrice(); // numero
+  let total = getTotalPrice();
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -19,10 +20,10 @@ const Cart = () => {
       denyButtonText: `no, no borrar`,
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("Eliminado", "", "success");
+        toast.error("Eliminado", "", "success");
         deleteProduct(id);
       } else if (result.isDenied) {
-        Swal.fire("No se elimino", "", "info");
+        toast.success("No se elimino", "", "info");
       }
     });
   };
@@ -63,9 +64,9 @@ const Cart = () => {
       <div
         style={{
           display: "flex",
-          padding: "10px",
           justifyContent: "space-between",
           flexDirection: "column",
+          padding: "10px",
           alignItems: "center",
           border: "3px solid blue",
           borderRadius: "5px",

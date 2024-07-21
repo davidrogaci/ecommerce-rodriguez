@@ -1,11 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import { products } from "../../products";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
-import Swal from "sweetalert2";
 import { db } from "../../firebaseConfig";
 import { collection, doc, getDoc } from "firebase/firestore";
+import { toast } from "sonner";
 
 const ItemDetailContainer = () => {
   const { addToCart, getQuantityById } = useContext(CartContext);
@@ -26,13 +25,7 @@ const ItemDetailContainer = () => {
   const onAdd = (quantity) => {
     let objetoFinal = { ...item, quantity: quantity };
     addToCart(objetoFinal);
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Producto Agregado",
-      showConfirmButton: true,
-      timer: 1500,
-    });
+    toast.success("Producto Agregado");
   };
 
   return <ItemDetail item={item} onAdd={onAdd} initial={initial} />;
