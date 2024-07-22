@@ -8,7 +8,7 @@ export const Navbar = () => {
       <>
         <div className="navbarContainer">
           <Link className="brandLogo" to="/">
-            KICKSTREET
+            KickStreet
           </Link>
           <ul className="navbarNav">
             <Link to="/category/running">Running</Link>

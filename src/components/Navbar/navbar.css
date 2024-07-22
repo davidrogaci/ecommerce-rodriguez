@@ -10,14 +10,13 @@
   list-style: none;
   display: flex;
   gap: 1rem;
-  color: #000000;
-  padding-right: 80px;
+  padding-right: 150px;
 }
 
 a {
   font-size: 20px;
+  font-stretch: 1rem;
   text-decoration: none;
-  gap: 1rem;
   color: #ffffff;
 }
 
@@ -27,8 +26,11 @@ a:hover {
 }
 
 .brandLogo {
-  margin: 10px;
-  align-items: center;
+  position: relative;
+
   color: #ffffff;
   text-decoration: none;
+  font-family: "Playwrite BE VLG", cursive;
+  font-style: normal;
+  font-size: 30px;
 }
