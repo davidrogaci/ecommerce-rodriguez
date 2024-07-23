@@ -1,0 +1,8 @@
+.ItemListContainer {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 20px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

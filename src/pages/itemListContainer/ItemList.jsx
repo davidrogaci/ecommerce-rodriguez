@@ -1,5 +1,5 @@
 import { ProductCard } from "../../components/productCard/ProductCard";
-
+import "./itemList.css";
 const ItemList = ({ items }) => {
   return (
     <div className="ItemListContainer">
