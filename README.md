@@ -1,8 +1,72 @@
-# React + Vite
+# Ecommerce de Zapatillas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es el proyecto final de un ecommerce de zapatillas, desarrollado con React y Vite. Permite a los usuarios buscar, ver detalles y comprar una variedad de zapatillas.
 
-Currently, two official plugins are available:
+## Descripción
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este proyecto tiene como objetivo crear una plataforma de comercio electrónico donde los usuarios puedan:
+
+- Explorar una lista de zapatillas.
+- Buscar productos por nombre o categoría.
+- Ver detalles de un producto.
+- Añadir productos al carrito.
+- Realizar compras.
+
+## Instalación
+
+Para ejecutar este proyecto localmente, sigue estos pasos:
+
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/davidrogaci/ecommerce-rodriguez.git
+   ```
+
+2. Navega al directorio del proyecto:
+
+   ```bash
+   cd ecommerce-rodriguez
+   ```
+
+3. Instala las dependencias:
+
+   ```bash
+   npm install
+   ```
+
+4. Inicia el servidor de desarrollo:
+   ```bash
+   npm start
+   ```
+
+## Uso
+
+Una vez que el servidor esté en funcionamiento, accede a la aplicación en tu navegador en `http://localhost:3000`.
+
+### Funcionalidades
+
+- **Página Principal**: Muestra una selección de zapatillas destacadas.
+- **Búsqueda**: Permite buscar zapatillas por nombre o categoría.
+- **Detalles del Producto**: Proporciona información detallada sobre cada zapatilla.
+- **Carrito de Compras**: Permite añadir y eliminar productos del carrito.
+- **Proceso de Compra**: Facilita la compra y el pago de las zapatillas.
+
+## Contribuir
+
+Para contribuir a este proyecto, sigue estos pasos:
+
+1. Haz un fork del repositorio.
+2. Crea una nueva rama (`git checkout -b feature/nueva-feature`).
+3. Realiza tus cambios y haz commits (`git commit -am 'Añadir nueva feature'`).
+4. Envía tus cambios (`git push origin feature/nueva-feature`).
+5. Abre una Pull Request.
+
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+## Contacto
+
+Para más información o preguntas, puedes contactar al desarrollador principal del proyecto:
+
+- **Davidrogaci**: [David Rodriguez](https://github.com/davidrogaci)
