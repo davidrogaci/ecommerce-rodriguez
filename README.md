@@ -41,7 +41,7 @@ Para ejecutar este proyecto localmente, sigue estos pasos:
 
 ## Uso
 
-Una vez que el servidor esté en funcionamiento, accede a la aplicación en tu navegador en `http://localhost:3000`.
+Una vez que el servidor esté en funcionamiento, accede a la aplicación en tu navegador en `http://localhost:xxxx`.
 
 ### Funcionalidades
 
