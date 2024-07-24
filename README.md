@@ -61,10 +61,6 @@ Para contribuir a este proyecto, sigue estos pasos:
 4. Envía tus cambios (`git push origin feature/nueva-feature`).
 5. Abre una Pull Request.
 
-## Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
-
 ## Contacto
 
 Para más información o preguntas, puedes contactar al desarrollador principal del proyecto:
