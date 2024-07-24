@@ -3,25 +3,31 @@ import { Counter } from "./Counter";
 import { toast } from "sonner";
 
 const CounterContainer = ({ onAdd, stock, initial = 1 }) => {
-  const [contador, setContador] = useState(initial);
+  const [count, setCount] = useState(initial);
 
-  const sumar = () => {
-    if (contador < stock) {
-      setContador(contador + 1);
+  const increment = () => {
+    if (count < stock) {
+      setCount(count + 1);
     } else {
-      toast.error(`NO HAY MAS!`);
+      toast.error(`No hay más stock disponible.`);
     }
   };
 
-  const restar = () => {
-    if (contador > 1) {
-      setContador(contador - 1);
+  const decrement = () => {
+    if (count > 1) {
+      setCount(count - 1);
     } else {
-      toast.error(`MINIMO!`);
+      toast.error(`Cantidad mínima alcanzada.`);
     }
   };
+
   return (
-    <Counter contador={contador} sumar={sumar} restar={restar} onAdd={onAdd} />
+    <Counter
+      count={count}
+      increment={increment}
+      decrement={decrement}
+      onAdd={onAdd}
+    />
   );
 };
 

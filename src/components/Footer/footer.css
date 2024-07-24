@@ -1,7 +1,21 @@
+:root {
+  --footer-bg-color: #003366;
+  --footer-font-size: 18px;
+  --footer-text-color: rgb(214, 214, 214);
+  --footer-padding: 25px;
+}
+
 .Footer {
-  background-color: #003366;
-  font-size: 18px;
-  color: rgb(214, 214, 214);
-  padding: 25px;
+  background-color: var(--footer-bg-color);
+  font-size: var(--footer-font-size);
+  color: var(--footer-text-color);
+  padding: var(--footer-padding);
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .Footer {
+    font-size: 0.875rem;
+    padding: 1rem 0.5rem;
+  }
 }

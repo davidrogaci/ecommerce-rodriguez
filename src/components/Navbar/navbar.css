@@ -10,27 +10,36 @@
   list-style: none;
   display: flex;
   gap: 1rem;
-  padding-right: 150px;
+  margin-right: 150px;
 }
 
 a {
   font-size: 20px;
-  font-stretch: 1rem;
   text-decoration: none;
   color: #ffffff;
+  transition: color 0.3s;
 }
 
 a:hover {
   color: #000000;
-  transition: 0.3s;
 }
 
 .brandLogo {
   position: relative;
-
   color: #ffffff;
   text-decoration: none;
   font-family: "Playwrite BE VLG", cursive;
-  font-style: normal;
   font-size: 30px;
+}
+
+@media (max-width: 768px) {
+  .navbarContainer {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .navbarNav a {
+    margin: 0.5rem 0;
+  }
 }

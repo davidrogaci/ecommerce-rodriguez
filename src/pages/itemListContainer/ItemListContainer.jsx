@@ -8,78 +8,55 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 const ItemListContainer = () => {
   const { name } = useParams();
   const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let productsCollection = collection(db, "products");
+    const fetchItems = async () => {
+      let productsCollection = collection(db, "products");
+      let consulta = name
+        ? query(productsCollection, where("category", "==", name))
+        : productsCollection;
 
-    let consulta = productsCollection;
-    if (name) {
-      consulta = query(productsCollection, where("category", "==", name));
-    }
+      try {
+        const res = await getDocs(consulta);
+        const arrayValido = res.docs.map((product) => ({
+          ...product.data(),
+          id: product.id,
+        }));
+        setItems(arrayValido);
+      } catch (error) {
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    let getProducts = getDocs(consulta);
-    getProducts.then((res) => {
-      let arrayValido = res.docs.map((product) => {
-        return { ...product.data(), id: product.id };
-      });
-      setItems(arrayValido);
-    });
+    fetchItems();
   }, [name]);
-  if (items.length === 0) {
+
+  const SkeletonLoader = () => (
+    <Box>
+      <Skeleton variant="rectangular" width={250} height={100} />
+      <Skeleton variant="text" width={150} height={60} />
+      <Skeleton variant="text" width={150} height={50} />
+      <Skeleton variant="rectangular" width={100} height={50} />
+    </Box>
+  );
+
+  if (loading) {
     return (
-      <div
-        style={{
-          display: "flex",
-          gap: "40px",
-        }}
-      >
-        <Box>
-          <Skeleton variant="rectangular" width={250} height={100} />
-          <Skeleton variant="text" width={150} height={60} />
-          <Skeleton variant="text" width={150} height={50} />
-          <Skeleton variant="rectangular" width={100} height={50} />
-        </Box>
-
-        <Box>
-          <Skeleton variant="rectangular" width={250} height={100} />
-          <Skeleton variant="text" width={150} height={60} />
-          <Skeleton variant="text" width={150} height={50} />
-          <Skeleton variant="rectangular" width={100} height={50} />
-        </Box>
-
-        <Box>
-          <Skeleton variant="rectangular" width={250} height={100} />
-          <Skeleton variant="text" width={150} height={60} />
-          <Skeleton variant="text" width={150} height={50} />
-          <Skeleton variant="rectangular" width={100} height={50} />
-        </Box>
-
-        <Box>
-          <Skeleton variant="rectangular" width={250} height={100} />
-          <Skeleton variant="text" width={150} height={60} />
-          <Skeleton variant="text" width={150} height={50} />
-          <Skeleton variant="rectangular" width={100} height={50} />
-        </Box>
-
-        <Box>
-          <Skeleton variant="rectangular" width={250} height={100} />
-          <Skeleton variant="text" width={150} height={60} />
-          <Skeleton variant="text" width={150} height={50} />
-          <Skeleton variant="rectangular" width={100} height={50} />
-        </Box>
-
-        <Box>
-          <Skeleton variant="rectangular" width={250} height={100} />
-          <Skeleton variant="text" width={150} height={60} />
-          <Skeleton variant="text" width={150} height={50} />
-          <Skeleton variant="rectangular" width={100} height={50} />
-        </Box>
+      <div className="ItemListPreLoad">
+        {Array(18)
+          .fill()
+          .map((_, index) => (
+            <SkeletonLoader key={index} />
+          ))}
       </div>
     );
   }
+
   return (
     <div>
-      <ItemList items={items} />;
+      <ItemList items={items} />
     </div>
   );
 };

@@ -1,8 +1,17 @@
 .ItemListContainer {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   gap: 30px;
   margin: 20px;
-  flex-wrap: wrap;
+}
+
+.ItemListPreLoad {
+  display: flex;
+  align-items: center;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin: 20px;
 }

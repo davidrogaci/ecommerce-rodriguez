@@ -8,25 +8,39 @@ import { toast } from "sonner";
 
 const ItemDetailContainer = () => {
   const { addToCart, getQuantityById } = useContext(CartContext);
-
   const { id } = useParams();
 
   const [item, setItem] = useState({});
+  const [loading, setLoading] = useState(true);
 
-  let initial = getQuantityById(id);
+  const initial = getQuantityById(id);
 
   useEffect(() => {
-    let productsCollection = collection(db, "products");
-    let refDoc = doc(productsCollection, id);
-    let getProducts = getDoc(refDoc);
-    getProducts.then((res) => setItem({ ...res.data(), id: res.id }));
+    const fetchItem = async () => {
+      try {
+        const productsCollection = collection(db, "products");
+        const refDoc = doc(productsCollection, id);
+        const res = await getDoc(refDoc);
+        setItem({ ...res.data(), id: res.id });
+      } catch (error) {
+        toast.error("Error al cargar el producto");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchItem();
   }, [id]);
 
   const onAdd = (quantity) => {
-    let objetoFinal = { ...item, quantity: quantity };
+    const objetoFinal = { ...item, quantity };
     addToCart(objetoFinal);
     toast.success("Producto Agregado");
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return <ItemDetail item={item} onAdd={onAdd} initial={initial} />;
 };

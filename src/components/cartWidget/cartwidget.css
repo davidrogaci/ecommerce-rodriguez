@@ -2,3 +2,12 @@
   display: flex;
   margin-right: 7px;
 }
+
+.cartWidget:hover .cartIcon {
+  color: black;
+}
+
+.cartIcon {
+  color: white;
+  transition: color 0.3s ease;
+}

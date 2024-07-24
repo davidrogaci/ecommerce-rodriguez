@@ -10,12 +10,12 @@ import { Link } from "react-router-dom";
 
 export const ProductCard = ({ title, description, price, id, img }) => {
   return (
-    <Card sx={{ width: 345 }}>
+    <Card sx={{ width: 345, m: 2, boxShadow: 3 }}>
       <CardMedia
-        component={"img"}
-        sx={{ height: 200, width: "100%", objectFit: "cover" }}
+        component="img"
+        sx={{ height: 200, objectFit: "cover" }}
         image={img}
-        title="green iguana"
+        alt={`Imagen de ${title}`} // Mejorando la accesibilidad
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -29,9 +29,9 @@ export const ProductCard = ({ title, description, price, id, img }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Link to={`/itemDetail/${id}`}>
-          <Button size="small" variant="outlined">
-            Ver mas
+        <Link to={`/itemDetail/${id}`} style={{ textDecoration: "none" }}>
+          <Button size="small" color="primary" variant="outlined">
+            Ver más
           </Button>
         </Link>
       </CardActions>

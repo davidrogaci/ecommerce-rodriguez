@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Button, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -7,14 +7,14 @@ import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 import { CartContext } from "../../context/CartContext";
 import { toast } from "sonner";
+import "./CheckoutV2.css";
 
 const CheckoutV2 = () => {
   const navigate = useNavigate();
   const { cart, getTotalPrice, clearCart } = useContext(CartContext);
-  const [orderId, setOrderId] = useState("");
-  let total = getTotalPrice();
+  const total = getTotalPrice();
 
-  const { handleSubmit, handleChange, values, errors, touched } = useFormik({
+  const formik = useFormik({
     initialValues: {
       nombre: "",
       email: "",
@@ -22,39 +22,39 @@ const CheckoutV2 = () => {
       confirme: "",
       telefono: "",
     },
-    onSubmit: (data) => {
-      const user = {
-        nombre: data.nombre,
-        email: data.email,
-        telefono: data.telefono || "",
-      };
+    onSubmit: async (data) => {
+      try {
+        const user = {
+          nombre: data.nombre,
+          email: data.email,
+          telefono: data.telefono || "",
+        };
 
-      let order = {
-        buyer: user,
-        items: cart,
-        total,
-      };
+        const order = {
+          buyer: user,
+          items: cart,
+          total,
+        };
 
-      let orderCollection = collection(db, "orders");
-      let productsCollection = collection(db, "products");
+        const orderCollection = collection(db, "orders");
+        const productsCollection = collection(db, "products");
 
-      cart.forEach((elemento) => {
-        let refDoc = doc(productsCollection, elemento.id);
-        updateDoc(refDoc, { stock: elemento.stock - elemento.quantity });
-      });
+        for (const item of cart) {
+          const refDoc = doc(productsCollection, item.id);
+          await updateDoc(refDoc, { stock: item.stock - item.quantity });
+        }
 
-      addDoc(orderCollection, order)
-        .then((res) => {
-          setOrderId(res.id);
-          toast.success(
-            `Gracias por elegirnos! Tu orden de compra es: ${res.id}`
-          );
-        })
-        .catch()
-        .finally(() => {
-          clearCart();
-          navigate("/");
-        });
+        const res = await addDoc(orderCollection, order);
+        toast.success(
+          `Gracias por elegirnos! Tu orden de compra es: ${res.id}`
+        );
+        clearCart();
+        navigate("/");
+      } catch (error) {
+        toast.error(
+          "Ocurrió un error al procesar tu orden. Inténtalo nuevamente."
+        );
+      }
     },
     validationSchema: Yup.object({
       nombre: Yup.string()
@@ -82,48 +82,34 @@ const CheckoutV2 = () => {
   });
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        marginTop: "50px",
-        marginLeft: "300px",
-        marginRight: "300px",
-        padding: "20px",
-        gap: "20px",
-        border: "3px solid blue",
-        borderRadius: "5px",
-        backgroundColor: "white",
-      }}
-    >
+    <form onSubmit={formik.handleSubmit} className="checkoutForm">
       <h1>FINALIZAR COMPRA:</h1>
       <TextField
         variant="outlined"
         type="text"
         label="Nombre"
         name="nombre"
-        onChange={handleChange}
-        error={touched.nombre && errors.nombre ? true : false}
-        helperText={touched.nombre && errors.nombre}
+        onChange={formik.handleChange}
+        error={formik.touched.nombre && formik.errors.nombre}
+        helperText={formik.touched.nombre && formik.errors.nombre}
       />
       <TextField
         variant="outlined"
         type="text"
         label="Telefono"
         name="telefono"
-        onChange={handleChange}
-        error={touched.telefono && errors.telefono ? true : false}
-        helperText={touched.telefono && errors.telefono}
+        onChange={formik.handleChange}
+        error={formik.touched.telefono && formik.errors.telefono}
+        helperText={formik.touched.telefono && formik.errors.telefono}
       />
       <TextField
         variant="outlined"
         type="email"
         label="Email"
         name="email"
-        onChange={handleChange}
-        error={touched.email && errors.email ? true : false}
-        helperText={touched.email && errors.email}
+        onChange={formik.handleChange}
+        error={formik.touched.email && formik.errors.email}
+        helperText={formik.touched.email && formik.errors.email}
       />
       <TextField
         id="outlined-adornment-password"
@@ -131,26 +117,26 @@ const CheckoutV2 = () => {
         type="password"
         label="Contraseña"
         name="contraseña"
-        onChange={handleChange}
-        error={touched.contraseña && errors.contraseña ? true : false}
-        helperText={touched.contraseña && errors.contraseña}
+        onChange={formik.handleChange}
+        error={formik.touched.contraseña && formik.errors.contraseña}
+        helperText={formik.touched.contraseña && formik.errors.contraseña}
       />
       <TextField
         variant="outlined"
         type="password"
         label="Confirmar"
         name="confirme"
-        onChange={handleChange}
-        error={touched.confirme && errors.confirme ? true : false}
-        helperText={touched.confirme && errors.confirme}
+        onChange={formik.handleChange}
+        error={formik.touched.confirme && formik.errors.confirme}
+        helperText={formik.touched.confirme && formik.errors.confirme}
       />
-      {values.nombre === "delivery" && (
+      {formik.values.nombre === "delivery" && (
         <TextField
           variant="outlined"
           type="text"
-          label="Direccion"
+          label="Dirección"
           name="direccion"
-          onChange={handleChange}
+          onChange={formik.handleChange}
         />
       )}
       <Button type="submit" variant="contained">

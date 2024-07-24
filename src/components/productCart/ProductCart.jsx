@@ -1,13 +1,13 @@
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
-export const ProductCart = ({ title, description, price, id, img }) => {
+export const ProductCart = ({ title, description, price, img }) => {
   return (
-    <Card sx={{ width: 345 }}>
+    <Card sx={{ maxWidth: 345, m: 2 }}>
       <CardMedia
-        component={"img"}
-        sx={{ height: 200, width: "100%", objectFit: "cover" }}
+        component="img"
+        sx={{ height: 200, objectFit: "cover" }}
         image={img}
-        title="green iguana"
+        alt={`Imagen de ${title}`}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

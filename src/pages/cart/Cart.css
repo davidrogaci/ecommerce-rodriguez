@@ -1,0 +1,35 @@
+.cartContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 30px;
+  flex-wrap: wrap;
+}
+
+.cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cartItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.cartSummary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 10px;
+  border: 3px solid blue;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.cartSummary h2 {
+  margin-bottom: 10px;
+}

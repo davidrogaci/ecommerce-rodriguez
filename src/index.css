@@ -1,36 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+BE+VLG:wght@100..400&display=swap");
+
 * {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-style: normal;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
-  body {
-    min-height: 100dvh;
-    margin: 0;
-    background-color: rgb(206, 206, 206);
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    text-wrap: balance;
-  }
-
-  p {
-    text-wrap: pretty;
-  }
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
-.ItemListContainer {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  margin: 20px;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: rgb(206, 206, 206);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }

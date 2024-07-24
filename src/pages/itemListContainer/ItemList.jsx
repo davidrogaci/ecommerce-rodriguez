@@ -1,20 +1,19 @@
 import { ProductCard } from "../../components/productCard/ProductCard";
 import "./itemList.css";
+
 const ItemList = ({ items }) => {
   return (
     <div className="ItemListContainer">
-      {items.map((elemento) => {
-        return (
-          <ProductCard
-            key={elemento.id}
-            title={elemento.title}
-            description={elemento.description}
-            price={elemento.price}
-            id={elemento.id}
-            img={elemento.img}
-          />
-        );
-      })}
+      {items.map(({ id, title, description, price, img }) => (
+        <ProductCard
+          key={id}
+          title={title}
+          description={description}
+          price={price}
+          id={id}
+          img={img}
+        />
+      ))}
     </div>
   );
 };
