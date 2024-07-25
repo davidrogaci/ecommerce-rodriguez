@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import "./CartWidget.css";
+import "./cartWidget.css";
 
 const CartWidget = () => {
   const { getTotalItems } = useContext(CartContext);
