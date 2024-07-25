@@ -10,7 +10,7 @@ Este proyecto tiene como objetivo crear una plataforma de comercio electrónico 
 - Buscar productos por nombre o categoría.
 - Ver detalles de un producto.
 - Añadir productos al carrito.
-- Realizar compras.
+- Simularr compras.
 
 ## Instalación
 
