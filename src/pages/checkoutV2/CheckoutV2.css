@@ -1,4 +1,4 @@
-.checkoutForm {
+/* .checkoutForm {
   display: flex;
   flex-direction: column;
   margin: 50px 300px;
@@ -11,4 +11,28 @@
 
 .checkoutForm h1 {
   text-align: center;
+} */
+.checkoutForm {
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  padding: 20px;
+  gap: 20px;
+  border: 3px solid blue;
+  border-radius: 5px;
+  background-color: white;
+  max-width: 50%; /* Limita el ancho máximo del formulario */
+}
+
+.checkoutForm h1 {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .checkoutForm {
+    margin: 20px auto;
+    padding: 10px;
+    gap: 10px;
+    max-width: 90%;
+  }
 }
