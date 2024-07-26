@@ -8,7 +8,8 @@
 
 .cartItems {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -24,12 +25,45 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  margin-top: 16px;
   gap: 10px;
-  border: 3px solid blue;
-  border-radius: 5px;
+  border: 4px solid #003366;
+  border-radius: 6px;
   background-color: white;
 }
 
 .cartSummary h2 {
   margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .cartContainer {
+    margin: 20px;
+  }
+
+  .cartItems,
+  .cartSummary {
+    width: 100%;
+  }
+
+  .cartItem {
+    width: 100%;
+  }
+
+  .link {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cartContainer {
+    margin: 10px;
+  }
+
+  .cartSummary {
+    padding: 10px;
+    border-width: 4px;
+  }
 }

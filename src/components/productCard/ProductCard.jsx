@@ -15,7 +15,7 @@ export const ProductCard = ({ title, description, price, id, img }) => {
         component="img"
         sx={{ height: 200, objectFit: "cover" }}
         image={img}
-        alt={`Imagen de ${title}`} // Mejorando la accesibilidad
+        alt={`Imagen de ${title}`}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

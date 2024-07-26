@@ -1,24 +1,24 @@
+import React, { useContext } from "react";
 import { Button } from "@mui/material";
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../context/CartContext";
 import Swal from "sweetalert2";
-import { ProductCart } from "../../components/productCart/ProductCart";
 import { toast } from "sonner";
+import { CartContext } from "../../context/CartContext";
+import { ProductCart } from "../../components/productCart/ProductCart";
 import "./Cart.css";
 
 const Cart = () => {
   const { cart, clearCart, deleteProduct, getTotalPrice } =
     useContext(CartContext);
   const total = getTotalPrice();
+  const isCartEmpty = cart.length === 0;
 
   const handleDelete = (id) => {
     Swal.fire({
-      title: "Seguro quieres eliminar?",
+      title: "¿Seguro quieres eliminar?",
       showDenyButton: true,
-      showCancelButton: false,
-      confirmButtonText: "Si, borrar",
-      denyButtonText: `No, no borrar`,
+      confirmButtonText: "Sí, borrar",
+      denyButtonText: "No, no borrar",
     }).then((result) => {
       if (result.isConfirmed) {
         toast.error("Eliminado");
@@ -44,6 +44,8 @@ const Cart = () => {
             <Button
               variant="contained"
               onClick={() => handleDelete(elemento.id)}
+              className="deleteButton"
+              style={{ backgroundColor: "red" }}
             >
               Eliminar
             </Button>
@@ -51,23 +53,27 @@ const Cart = () => {
         ))}
       </div>
       <div className="cartSummary">
-        {cart.length > 0 ? (
+        {isCartEmpty ? (
+          <h2>No has agregado artículos a tu carrito.</h2>
+        ) : (
           <>
             <h2>EL TOTAL ES: ${total}</h2>
             <Button variant="outlined" onClick={clearCart}>
               Limpiar carrito
             </Button>
           </>
-        ) : (
-          <h2>Tu carrito está vacío</h2>
         )}
-        <Link to="/checkout">
+        <Link to={isCartEmpty ? "#" : "/checkout"} className="link">
           <Button
             variant="contained"
-            style={{ backgroundColor: cart.length > 0 ? "blue" : "red" }}
+            style={{ backgroundColor: isCartEmpty ? "" : "green" }}
+            disabled={isCartEmpty}
           >
             Finalizar compra
           </Button>
+        </Link>
+        <Link to="/" className="link">
+          <Button variant="contained">Seguir comprando</Button>
         </Link>
       </div>
     </div>
