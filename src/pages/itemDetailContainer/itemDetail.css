@@ -2,8 +2,6 @@
   width: 100%;
   height: auto;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 20px;
   padding: 20px;
@@ -28,6 +26,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: auto;
+  gap: 20px;
   padding: 20px;
   color: #000000;
 }
