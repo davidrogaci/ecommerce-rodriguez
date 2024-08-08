@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Counter } from "./Counter";
 import { toast } from "sonner";
 
 const CounterContainer = ({ onAdd, stock, initial = 1 }) => {
   const [count, setCount] = useState(initial);
 
+  useEffect(() => {
+    if (initial < 1) {
+      setCount(1);
+    }
+  }, [initial]);
+
   const increment = () => {
     if (count < stock) {
       setCount(count + 1);
     } else {
-      toast.error(`No hay más stock disponible.`);
+      toast.error("No hay más stock disponible.");
     }
   };
 
@@ -17,7 +23,15 @@ const CounterContainer = ({ onAdd, stock, initial = 1 }) => {
     if (count > 1) {
       setCount(count - 1);
     } else {
-      toast.error(`Cantidad mínima alcanzada.`);
+      toast.error("Cantidad mínima alcanzada.");
+    }
+  };
+
+  const handleAdd = () => {
+    if (count >= 1) {
+      onAdd(count);
+    } else {
+      toast.error("Debe agregar al menos una unidad.");
     }
   };
 
@@ -26,7 +40,7 @@ const CounterContainer = ({ onAdd, stock, initial = 1 }) => {
       count={count}
       increment={increment}
       decrement={decrement}
-      onAdd={onAdd}
+      onAdd={handleAdd}
     />
   );
 };

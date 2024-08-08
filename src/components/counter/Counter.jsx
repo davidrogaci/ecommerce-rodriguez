@@ -8,7 +8,7 @@ export const Counter = ({ decrement, count, increment, onAdd }) => {
   return (
     <div className="counter-container">
       <IconButton
-        style={{ backgroundColor: "red" }}
+        className="decrement-button"
         variant="contained"
         size="small"
         onClick={decrement}
@@ -17,7 +17,7 @@ export const Counter = ({ decrement, count, increment, onAdd }) => {
       </IconButton>
       <h2> {count} </h2>
       <IconButton
-        style={{ backgroundColor: "green" }}
+        className="increment-button"
         variant="contained"
         size="small"
         onClick={increment}
